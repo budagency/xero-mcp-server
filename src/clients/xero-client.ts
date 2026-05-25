@@ -84,6 +84,7 @@ class CustomConnectionsXeroClient extends MCPXeroClient {
     "accounting.contacts",
     "accounting.settings",
     "accounting.reports.read",
+    "assets",
     "payroll.settings",
     "payroll.employees",
     "payroll.timesheets",
@@ -101,6 +102,7 @@ class CustomConnectionsXeroClient extends MCPXeroClient {
     "accounting.reports.trialbalance.read",
     "accounting.contacts",
     "accounting.settings",
+    "assets",
     "payroll.settings",
     "payroll.employees",
     "payroll.timesheets",
@@ -120,13 +122,15 @@ class CustomConnectionsXeroClient extends MCPXeroClient {
     const axiosError = error as AxiosError;
     const data = axiosError.response?.data;
     const message =
-      typeof data === "object" ? JSON.stringify(data) : data || axiosError.message;
+      typeof data === "object"
+        ? JSON.stringify(data)
+        : data || axiosError.message;
     return new Error(`Failed to get Xero token${context}: ${message}`);
   }
 
   public async getClientCredentialsToken(): Promise<TokenSet> {
     // If XERO_SCOPES is set, use that
-    if (process.env.XERO_SCOPES) {                                                                                                                                                     
+    if (process.env.XERO_SCOPES) {
       try {
         return await this.requestToken(process.env.XERO_SCOPES);
       } catch (envError) {

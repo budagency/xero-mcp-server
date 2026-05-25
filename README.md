@@ -51,13 +51,13 @@ Set up a Custom Connection following these instructions: https://developer.xero.
 
 Custom connections require different scopes depending on when they were created. **All scopes in the relevant list must be added to your custom connection:**
 
-| Custom Connection Created | Required Scopes |
-|---------------------------|-----------------|
-| Before Apr 29, 2026 | [SCOPES_V1](src/clients/xero-client.ts#L82-L90) (bundled permissions) |
-| From Apr 29, 2026 | [SCOPES_V2](src/clients/xero-client.ts#L93-L112) (granular permissions) |
+| Custom Connection Created | Required Scopes                                                         |
+| ------------------------- | ----------------------------------------------------------------------- |
+| Before Apr 29, 2026       | [SCOPES_V1](src/clients/xero-client.ts#L82-L90) (bundled permissions)   |
+| From Apr 29, 2026         | [SCOPES_V2](src/clients/xero-client.ts#L93-L112) (granular permissions) |
 
 > **Note:** The MCP server automatically tries V1 scopes first and falls back to V2 if needed.
-> 
+>
 > You can override these by setting the `XERO_SCOPES` environment variable to a space-separated list of scopes.
 
 ##### Integrating the MCP server with Claude Desktop
@@ -127,13 +127,13 @@ accounting.reports.aged.read
 accounting.reports.balancesheet.read
 accounting.reports.profitandloss.read
 accounting.reports.trialbalance.read
-accounting.contacts 
-accounting.settings 
-payroll.settings 
-payroll.employees 
+accounting.contacts
+accounting.settings
+assets
+payroll.settings
+payroll.employees
 payroll.timesheets
 ```
-
 
 ### Available MCP Commands
 
